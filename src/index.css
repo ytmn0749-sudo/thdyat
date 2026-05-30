@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800&family=Space+Grotesk:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: #020617; /* slate-950 */
+  --color-surface-container-lowest: #020617; /* slate-950 */
+  --color-surface-container-low: #0f172a; /* slate-900 */
+  --color-surface-container: #1e293b; /* slate-800 */
+  --color-surface-container-high: #334155; /* slate-700 */
+  --color-surface-container-highest: #475569; /* slate-600 */
+  --color-on-surface: #f1f5f9; /* slate-100 */
+  --color-on-surface-variant: #94a3b8; /* slate-400 */
+
+  --color-primary: #ffffff;
+  --color-primary-fixed: #f59e0b; /* amber-500 */
+  --color-on-primary-fixed: #ffffff;
+
+  --color-secondary-container: #4f46e5; /* indigo-600 */
+  --color-tertiary-container: #059669; /* emerald-600 */
+  --color-error: #e11d48; /* rose-600 */
+  --color-error-container: #be123c; /* rose-700 */
+
+  --font-arabic-display: 'Cairo', 'Be Vietnam Pro', sans-serif;
+  --font-body-lg: 'Cairo', 'Be Vietnam Pro', sans-serif;
+  --font-headline-md: 'Cairo', 'Be Vietnam Pro', sans-serif;
+  --font-label-caps: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--font-body-lg);
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  direction: rtl;
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.5); /* slate-900/50 */
+  border: 1px solid #1e293b; /* slate-800 */
+  border-radius: 1.5rem;
+  box-shadow: none;
+}
+
+.MainStage-card {
+  background: linear-gradient(to bottom right, rgba(49, 46, 129, 0.4), #0f172a); /* from-indigo-900/40 to-slate-900 */
+  border: 1px solid rgba(99, 102, 241, 0.3); /* border-indigo-500/30 */
+  border-radius: 1.5rem;
+}
+
+.neon-border-primary { border-color: #f59e0b; }
+.neon-border-magenta { border-color: #6366f1; }
+.neon-border-teal { border-color: #10b981; }
+.neon-border-purple { border-color: #8b5cf6; }
+.neon-border-yellow { border-color: #eab308; }
+.neon-border-white { border-color: #94a3b8; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+.animate-shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes slide-up-paper {
+  0% { transform: translateY(100px) scale(0.5) rotate(-10deg); opacity: 0; }
+  100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+}
+.animate-paper {
+  animation: slide-up-paper 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.wheel-container {
+  perspective: 1000px;
+}
+#wheel {
+  transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1);
+  transform-style: preserve-3d;
+}
+.wheel-segment {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% 41.42%, 0 0); /* roughly 360/16 = 22.5 deg */
+}
